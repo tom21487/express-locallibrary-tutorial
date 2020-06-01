@@ -13,8 +13,7 @@ var app = express();
 // set up mongoose connection
 const mongoose = require('mongoose');
 //const mongoDB = 'mongodb://localhost:27017/local_library';
-const dev_db_url = 'mongodb+srv://dbUser:z3V4bZ2ihjI74GjT@cluster0-tfdue.azure.mongodb.net/local_library?retryWrites=true&w=majority';
-var mongoDB = process.env.MONGODB_URI || dev_db_url;
+const mongoDB = 'mongodb+srv://dbUser:z3V4bZ2ihjI74GjT@cluster0-tfdue.azure.mongodb.net/local_library?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
