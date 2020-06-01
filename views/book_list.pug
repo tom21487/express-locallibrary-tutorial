@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+    //- have to put everything in one line for now (figure out how to do multiple lines later)
+    -
+      book_list.sort(function(a, b) { 
+        let textA = a.title.toUpperCase();
+        let textB = b.title.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      });
+      
+    each book in book_list
+      li
+        a(href=book.url) #{book.title}
+        |  (#{book.author.name})
+    else
+      li There are no books.
